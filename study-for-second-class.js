@@ -175,3 +175,41 @@ const c = Promise.resolve("World");
 const d = new Promise((_, reject) => setTimeout(() => reject("Error!"), 400));
 
 Promise.all([a, c, d]).then(console.log);
+
+// Javascript generators explained
+// Main use case is for sagas
+// What is a generator? a pull stream
+// what is a stream? it is data over time
+// two types of streams -> push and pull
+// push -> you are not in control when the data comes through 
+// (e.g. websockets, reading a file from disk)
+// pull -> you decide when data comes through
+// lazy (data is evaluated when needed) vs eager (data is evaluated immediately)
+// Array, promises and push streams are examples of eager
+// How are promises eager?
+
+// What is a generator?
+// a generator is a special kind of function that can start and stop one or more times, 
+// and doesn't necessarily ever have to finish.
+// yield is a kind of intermediate return
+function* myGenerator() {
+  yield "Hello"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
