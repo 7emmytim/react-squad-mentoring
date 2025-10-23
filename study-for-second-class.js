@@ -181,35 +181,57 @@ Promise.all([a, c, d]).then(console.log);
 // What is a generator? a pull stream
 // what is a stream? it is data over time
 // two types of streams -> push and pull
-// push -> you are not in control when the data comes through 
-// (e.g. websockets, reading a file from disk)
-// pull -> you decide when data comes through
+// push -> you are not in control when the data comes through
+// (e.g. websockets, server-sent events, video streams)
+// pull -> you decide when data comes through (e.g. fetch(), iterators and generators)
+// Push: Data comes to you.
+// Pull: You go get the data.
 // lazy (data is evaluated when needed) vs eager (data is evaluated immediately)
 // Array, promises and push streams are examples of eager
 // How are promises eager?
 
+console.log("hello");
+
+const newPromise3 = new Promise(() => {
+  console.log("inside");
+});
+
+console.log("outside");
+// console.log(newPromise3())
+
 // What is a generator?
-// a generator is a special kind of function that can start and stop one or more times, 
+// a generator is a special kind of function that can start and stop one or more times,
 // and doesn't necessarily ever have to finish.
+// Generators in js are special fns that can pause execution and resume later
 // yield is a kind of intermediate return
 function* myGenerator() {
-  yield "Hello"
+  yield "Hello";
 }
 
+// why sagas?
+// allows you isolate side effects. isolate async effects
+// old code bases
+// deterministic testing of I/O related logic
 
+// what is redux saga?
+// is a middleware that uses generators to;
+// manage side effects and manipulate actions
+// decouple your code
+// define complex logic flows, sequences and data processes
 
+// redux saga transforms impure fns like api requests into pure fns by delaying the computation
+// it separates async logic and state mgt from ui
+// building blocks of redux saga
+// effect -> action creators
+// sagas -> generator fns that manage side effects
+// middleware -> responsible for the exec of the effects
 
+// take, put, select, call
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+// console.log(take('increment'));
+// {
+//     "@redux-saga/IO": true,
+//     combinator: true;
+//     type: "TAKE",
+//     payload: { pattern: 'increment' },
+// }
